@@ -2,7 +2,7 @@ package com.example.orderEat.domain.entities;
 
 import jakarta.persistence.*;
 
-import java.util.Set;
+
 
 
 @Entity
@@ -13,16 +13,11 @@ public class Account {
     @Column(name="id")
     private int id;
     private String name;
-    private String account;
+    private String username;
     private String password;
     private String role;
 
-    public Account( String name, String account, String password, String role) {
-
-        this.name = name;
-        this.account = account;
-        this.password = password;
-        this.role = role;
+    public Account() {
     }
 
     public int getId() {
@@ -41,12 +36,12 @@ public class Account {
         this.name = name;
     }
 
-    public String getAccount() {
-        return account;
+    public String getUsername() {
+        return username;
     }
 
-    public void setAccount(String account) {
-        this.account = account;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
