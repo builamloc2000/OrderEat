@@ -9,4 +9,5 @@ public interface OrderDetailService {
     OrderDetail updateOrderDetail(OrderDetail orderDetail, Integer orderDetailId);
     void deleteOrderDetail(Integer orderDetailId);
     List<OrderDetail> fetchOrderDetailList();
+    List<OrderDetail> findByOrderId(Integer id);
 }

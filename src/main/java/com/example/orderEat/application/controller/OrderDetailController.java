@@ -19,7 +19,7 @@ public class OrderDetailController {
     public List<OrderDetail> findOrderDetailServiceList() {
         return orderDetailService.fetchOrderDetailList();
     }
-
+    //save order
     @PostMapping("/order")
     public OrderDetail saveOrderDetail(@RequestBody OrderDetail orderDetail){
         return orderDetailService.saveOrderDetail(orderDetail);
@@ -28,6 +28,11 @@ public class OrderDetailController {
     public String deleteOrderDetailById(@PathVariable("id") Integer id){
         orderDetailService.deleteOrderDetail(id);
         return "Deleted";
+    }
+    //get all order detail from 1 order
+    @GetMapping("/orderId/{id}")
+    public List<OrderDetail> findByOrderId(@PathVariable Integer id){
+        return orderDetailService.findByOrderId(id);
     }
 
 }

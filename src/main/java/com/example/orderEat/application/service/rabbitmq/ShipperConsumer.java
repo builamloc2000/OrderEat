@@ -1,4 +1,4 @@
-package com.example.orderEat.application.service.serviceImpl;
+package com.example.orderEat.application.service.rabbitmq;
 
 import com.example.orderEat.application.service.OrderService;
 import com.example.orderEat.domain.entities.Order;
@@ -9,14 +9,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserConsumer {
-    private static final Logger LOGGER = LoggerFactory.getLogger(UserConsumer.class);
-    @RabbitListener(queues = {"${rabbitmq.queue.shipper.user}"})
-    public void consumeJsonMessage(Order order){
-        LOGGER.info(String.format("Received JSON message %s", order.toString()));
-        order.setStatusId(order.getStatusId()+1);
-        orderService.saveOrder(order);
+public class ShipperConsumer {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ShipperConsumer.class);
+
+    private ShipperProducer shipperProducer;
+
+    public ShipperConsumer(ShipperProducer shipperProducer) {
+        this.shipperProducer = shipperProducer;
     }
     @Autowired
     private OrderService orderService;
+
+    @RabbitListener(queues = {"${rabbitmq.queue.restaurant.shipper}"})
+    public void consumeJsonMessage(Order order){
+        LOGGER.info(String.format("Received JSON message %s", order.toString()));
+
+        order.setStatusId(order.getStatusId()+1);
+        orderService.saveOrder(order);
+        shipperProducer.sendJsonMessage(order);
+    }
 }

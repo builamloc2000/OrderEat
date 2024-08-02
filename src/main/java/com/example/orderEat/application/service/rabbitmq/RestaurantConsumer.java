@@ -1,17 +1,13 @@
-package com.example.orderEat.application.service.serviceImpl;
+package com.example.orderEat.application.service.rabbitmq;
 
 import com.example.orderEat.application.service.OrderService;
 import com.example.orderEat.domain.entities.Order;
 
-import com.example.orderEat.domain.entities.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @Service
 public class RestaurantConsumer {

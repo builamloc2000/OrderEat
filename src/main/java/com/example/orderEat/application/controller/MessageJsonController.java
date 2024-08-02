@@ -1,6 +1,6 @@
 package com.example.orderEat.application.controller;
 
-import com.example.orderEat.application.service.serviceImpl.RabbitMQJsonProducer;
+import com.example.orderEat.application.service.rabbitmq.RabbitMQJsonProducer;
 import com.example.orderEat.domain.entities.User;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/v1")
+//demo rabbit json msg
 public class MessageJsonController {
     private RabbitMQJsonProducer jsonProducer;
 

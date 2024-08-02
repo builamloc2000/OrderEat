@@ -1,6 +1,6 @@
 package com.example.orderEat.application.controller;
 
-import com.example.orderEat.application.service.serviceImpl.RabbitMQProducer;
+import com.example.orderEat.application.service.rabbitmq.RabbitMQProducer;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/v1")
+//demo rabbit string msg
 public class MessageController {
     private RabbitMQProducer producer;
 

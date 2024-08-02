@@ -32,4 +32,11 @@ public class MenuServiceImpl implements MenuService {
     public void deleteMenu(Integer menuId) {
         menuRepository.deleteById(menuId);
     }
+
+    @Override
+    public List<Menu> findRestaurantById(Integer resId) {
+        return menuRepository.findByRestaurantId(resId);
+    }
+
+
 }

@@ -1,4 +1,4 @@
-package com.example.orderEat.application.service.serviceImpl;
+package com.example.orderEat.application.service.rabbitmq;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

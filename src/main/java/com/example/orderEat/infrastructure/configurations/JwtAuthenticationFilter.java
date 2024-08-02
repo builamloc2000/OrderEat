@@ -1,8 +1,7 @@
-package com.example.orderEat.application.controller;
+package com.example.orderEat.infrastructure.configurations;
 
-import com.example.orderEat.application.service.AccountService;
 import com.example.orderEat.application.service.serviceImpl.AccountServiceImpl;
-import com.example.orderEat.application.webtoken.JwtService;
+import com.example.orderEat.application.service.webtoken.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

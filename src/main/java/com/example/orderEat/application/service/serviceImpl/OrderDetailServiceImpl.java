@@ -24,6 +24,11 @@ public class OrderDetailServiceImpl implements OrderDetailService {
     }
 
     @Override
+    public List<OrderDetail> findByOrderId(Integer id) {
+        return orderDetailRepository.findByOrderId(id);
+    }
+
+    @Override
     public OrderDetail updateOrderDetail(OrderDetail orderDetail, Integer orderDetailId) {
         return null;
     }

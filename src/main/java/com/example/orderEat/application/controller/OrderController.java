@@ -1,10 +1,8 @@
 package com.example.orderEat.application.controller;
 
 import com.example.orderEat.application.service.OrderService;
-import com.example.orderEat.application.service.serviceImpl.RabbitMQJsonProducer;
-import com.example.orderEat.application.service.serviceImpl.UserProducer;
+import com.example.orderEat.application.service.rabbitmq.UserProducer;
 import com.example.orderEat.domain.entities.Order;
-import com.example.orderEat.domain.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/order")
+
 public class OrderController {
     @Autowired
     private OrderService orderService;
@@ -24,8 +22,8 @@ public class OrderController {
     public OrderController(UserProducer userProducer) {
         this.userProducer = userProducer;
     }
-
-    @PostMapping("/placeOrder")
+    //flow user place order with rabbitmq
+    @PostMapping("/user/placeOrder")
     public ResponseEntity<String> sendJsonMessage(@RequestBody Order order){
 
         orderService.saveOrder(order);

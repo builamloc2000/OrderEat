@@ -1,4 +1,4 @@
-package com.example.orderEat.application.webtoken;
+package com.example.orderEat.application.service.webtoken;
 
 public record LoginForm(String username, String password) {
 }

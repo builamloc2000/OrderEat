@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FoodServiceImpl implements FoodService {
@@ -26,6 +27,11 @@ public class FoodServiceImpl implements FoodService {
     @Override
     public List<Food> fetchFoodList() {
         return (List<Food>) foodRepository.findAll();
+    }
+
+    @Override
+    public Optional<Food> findFoodById(Integer id) {
+        return foodRepository.findById(id) ;
     }
 
     @Override

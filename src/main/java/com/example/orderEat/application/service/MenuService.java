@@ -9,4 +9,5 @@ public interface MenuService {
     Menu saveMenu(Menu menu);
     Menu updateMenu(Menu menu, Integer menuId);
     void deleteMenu(Integer menuId);
+    List<Menu> findRestaurantById(Integer resId);
 }
